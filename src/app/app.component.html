@@ -1,2 +1,27 @@
-<h1>{{title}}</h1>
-<router-outlet></router-outlet>
+<app-navbar></app-navbar>
+<div class="row">
+  <div class="col-md-3">
+    <app-sidebar></app-sidebar>
+    <!-- <ul>
+      <li routerLink="home">Home</li>
+      <li routerLink="role">Role</li>
+      <li routerLink="user">User</li>
+      <ul>
+        <li [routerLink]="['user', 4]">User Details</li>
+        <li [routerLink]="['user', 4, 'role']">User Role</li>
+      </ul>
+    </ul> -->
+  </div>
+  <div class="col-md-9">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-scale-multiple"
+>
+  <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
