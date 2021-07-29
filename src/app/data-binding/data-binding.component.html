@@ -1,0 +1,73 @@
+<div class="row">
+  <div class="col-md-12">
+    <h2>
+      One Way Binding
+      <span style="font-size: 1.1rem">from Component to DOM</span>
+    </h2>
+    <div class="row">
+      <div class="col-md-3">
+        <h3>Interpolation</h3>
+        <p>Ad:{{ user.name }}, Soyad:{{ user.surname }}</p>
+        <div>
+          <img
+            height="120px"
+            src="{{ user.favorite_place_image }}"
+            alt="kiz_kulesi"
+          />
+        </div>
+      </div>
+      <div class="col-md-2">
+        <h3>Property Binding</h3>
+        <input type="text" [value]="user.name" />
+      </div>
+      <div class="col-md-3">
+        <h3>Attribute Binding</h3>
+        <input
+          [type]="type"
+          [value]="user.job"
+          [attr.disabled]="!user.isEditable ? 'disable' : null"
+        />
+        <button (click)="changeIsEditable()">Toggle</button>
+      </div>
+      <div class="col-md-2">
+        <h3>Class Binding</h3>
+        <p [class.red]="user.isEditable">Renk Değeri 1</p>
+        <p [class.colorOfAhmet]="user.name === 'Ahmet' ? true : false">
+          Renk Değeri 2
+        </p>
+      </div>
+      <div class="col-md-2">
+        <h3>Style Binding</h3>
+        <p [style.color]="user.name === 'Ahmet' ? 'orange' : 'blue'">
+          Style Color
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <h2>
+      One Way Binding
+      <span style="font-size: 1.1rem">from DOM to Component</span>
+    </h2>
+    <div class="row">
+      <div class="col-md-3">
+        <h3>Event Binding</h3>
+        <input
+          type="text"
+          [value]="user.name"
+          (keyup.enter)="inputSubmit($event)"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <h2>Two Way Binding</h2>
+    <div class="row">
+      <div class="col-md-3">
+        <h3>ngModel</h3>
+        <input type="text" [(ngModel)]="user.name" />
+        <p>{{ user.name }}</p>
+      </div>
+    </div>
+  </div>
+</div>
